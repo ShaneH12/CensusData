@@ -24,70 +24,9 @@ function loadCsv($path) {
     array_shift($csv); # remove column header
     return $csv;
 }
-// function calculateAverages($data) {
-//   $averagedData = [];
-//   forEach($data as $dataPoint){
-//     $date = DateTime::createFromFormat("Y-m-d", $dataPoint['DATE']);
-//
-//     $year = $date->format("Y");
-//     $month = $date->format("m");
-//
-//     // if(!$averagedData[$year]){
-//     //   $averagedData[$year] = [];
-//   }
-//   }
-//     if(!$averagedData[$year][$month]){
-//        $averagedData[intval($year)][intval($month)] = [
-//          'tempTotal'=>intval($dataPoint['TMAX']),
-//          'prcpTotal'=> intval($dataPoint['PRCP']),
-//          'tempAvg'=>intval($dataPoint['TMAX']),
-//          'prcpAvg'=> intval($dataPoint['PRCP']),
-//          'numDays' => 1];
-//     } else {
-//        $existingMonthData = $averagedData[$year][$month];
-//        $averagedData[$year][$month]['numDays']++;
-//
-//        $averagedData[$year][$month]['tempTotal'] = $averagedData[$year][$month]['tempTotal'] + intval($dataPoint['tmax']);
-//        $averagedData[$year][$month]['prcpTotal'] = $averagedData[$year][$month]['prcpTotal'] + intval($dataPoint['PRCP']);
-//        $averagedData[$year][$month]['tempAvg'] = $averagedData[$year][$month]['tempTotal'] / $averagedData[$year][$month]['numDays'];
-//        $averagedData[$year][$month]['prcpAvg'] = $averagedData[$year][$month]['prcpTotal'] / $averagedData[$year][$month]['numDays'];
-//
-//     }
-//   }
-//   return $averagedData;
-// }
-$censusData = loadCsv('http://localhost/censusData/louisiana_cen2.csv');
-// $censusData = loadCsv('http://localhost/dataAnalysis/miami-temperature.csv');
-// $precipData = loadCsv('http://localhost/dataAnalysis/louisiana_cen.csv');
-// $mergedData = [];
-// $i = 0;
-// foreach($censusData as $temp) {
-//   $mergedData[] = array_merge($temp, $precipData[$i]);
-//   $i++;
-// }
 
-// $averageData = calculateAverages($mergedData);
-// $censusData = [];
-// // $censusData = "[";
-// foreach($averageData as $data){
-//   foreach($data as $month){
-//     $censusData[] = $month['tempAvg'];
-    // $tempAvg = $month['tempAvg'];
-    // if($censusData == "[") {
-    //   $censusData = $censusData . "$tempAvg";
-    // } else {
-    //   $censusData = $censusData . ", $tempAvg";
-    // }
-//   }
-// }
-// echo("<input id='temp' type='hidden' value='".implode(", ", $censusData)."' />");
-//  var_dump($censusData);
-// // $censusData = $censusData . "]";
-// //  $censusData = '[80, 100, 56, 120, 180, 30, 40, 120, 160]';
-// // $jsoncensusData = json_encode($censusData);
-// $population = array();
-// foreach($censusData as $data){
-// array_push($population, $data["Population"]);
+$censusData = loadCsv('http://localhost/censusData/louisiana_cen2.csv');
+
 
 ?>
 <h1>Louisiana Census 18-24 Year Old Population</h1>
@@ -145,56 +84,10 @@ $censusData = loadCsv('http://localhost/censusData/louisiana_cen2.csv');
             .attr("height", function(d) { return height - y(d.Population); });
       });
 
-    // var svgWidth = 5000;
-    // var svgHeight = 300;
-    // var svg = d3.select('svg')
-    //     .attr("width", svgWidth)
-    //     .attr("height", svgHeight)
-    //     .attr("class", "bar-chart");
-    //
+
         // var dataset = <?php echo("[" . implode(", ", $population) . "]"); ?>;
-    //     // var dataset = document.getElementById('temp').value;
-    //     console.log(dataset);
-    //     var barPadding = 5;
-    //     var barWidth = (svgWidth / dataset.length);
-    //     var barChart = svg.selectAll("rect")
-    //         .data(dataset)
-    //         .enter()
-    //         .append("rect")
-    //         .attr("y", function(d) {
-    //             return svgHeight - d
-    //         })
-    //         .attr("height", function(d) {
-    //             return d;
-    //         })
-    //         .attr("width", barWidth - barPadding)
-    //         .attr("transform", function (d, i) {
-    //              var translate = [barWidth * i, 0];
-    //              return "translate("+ translate +")";
-    //         });
+
       </script>
   </body>
 </html>
 
-<!-- <table class="table">
-  <tr>
-    <th>Year</th>
-    <th>Month</th>
-    <th>Temp</th>
-    <th>Precip</th>
-  </tr>
-<?php
-// foreach($averageData as $year => $data) {
-//   for($i = 01; $i <= 12; $i++){
-//     $temp = $data[$i]['tempAvg'];
-//     $precip = $data[$i]['prcpAvg'];
-//     echo("<tr>");
-//     echo("<td>$year</td>");
-//     echo("<td>$i</td>");
-//     echo("<td>$temp</td>");
-//     echo("<td>$precip</td>");
-//     echo("</tr>");
-//   }
-// }
-?>
-</table> -->
