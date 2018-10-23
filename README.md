@@ -18,4 +18,4 @@ Automation / Computation
   - Analyzed the data from the CSV file and used D3.js functions to create a bar graph that shows the population numbers for each county in Louisiana.
   
 Review
-  - All data imported onton bar graph correctly. There is a slight issue with the percentages along the y-axis that may cause some issues when trying to interpret the graph. 
+  - All data imported on to bar graph correctly. There is a slight issue with the percentages along the y-axis that may cause some issues when trying to interpret the graph. 
